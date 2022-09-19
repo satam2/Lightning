@@ -1,25 +1,24 @@
 void setup(){
   size(500,500);
-  background(230,150,60);
+  coffeeshop();
   strokeWeight(2);
 }
 
-int startX = (int)(Math.random()*51)+205;
-int startY = 200;
+int startX = 0;
+int startY = 333;
 int endX = 250;
-int endY = 200;
+int endY = 333;
 boolean start = false;
 
 void draw(){
-  coffeeshop();
   if(start == true){
-    stroke(235,235,235,30);
+    stroke(235,235,235,25);
     strokeWeight(2);
     noFill();
       
     while(endY > -5){
       endX = startX + ((int)(Math.random()*19)-9);
-      endY = startY - (int)(Math.random()*11); 
+      endY = startY - ((int)(Math.random()*11)); 
       line(startX,startY, endX,endY);
       startX = endX;
       startY = endY;
@@ -27,16 +26,23 @@ void draw(){
   } // check if start 
 }
 
+void keyPressed(){
+  if(key == 'r'){
+    coffeeshop();
+    start = false;
+  }
+} // blow steam
+
 void mousePressed(){ 
   System.out.println("(" + mouseX +", " + mouseY+")");
-  start = true;
-  startX = (int)(Math.random()*51)+205;
-  startY = 200;
+  startX = (int)(Math.random()*71)+215; // 215,285
+  startY = 333;
   endX = 250;
-  endY = 200;
+  endY = 333;
+  start = true;
 }
 
-int coffeeX = 155;
+int coffeeX = 250;
 int coffeeY = 335; // 335
 
 void coffeeshop(){
