@@ -39,7 +39,7 @@ void mousePressed(){
   startY = 333;
   endX = 250;
   endY = 333;
-  start = true;
+  //start = true;
 }
 
 int coffeeX = 250;
@@ -56,6 +56,43 @@ void coffeeshop(){
   // brick wall
   fill(#AA4A44);
   rect(300,0,200,500);
+    // layer 1
+  fill(#000000);
+  rect(305,0,60,35);
+  rect(370,0,90,35);
+  rect(465,0,60,35);
+    // layer 2
+  rect(305,40,80,35);
+  rect(390,40,60,35);
+  rect(455,40,80,35);
+    // layer 3
+  rect(305,80,60,35);
+  rect(370,80,90,35);
+  rect(465,80,60,35);
+    // layer 4
+  rect(305,120,80,35);
+  rect(390,120,60,35);
+  rect(455,120,80,35);
+    // layer 5
+  rect(305,160,60,35);
+  rect(370,160,90,35);
+  rect(465,160,60,35);
+    // layer 6
+  rect(305,200,80,35);
+  rect(390,200,60,35);
+  rect(455,200,80,35);
+    // layer 7
+  rect(305,240,60,35);
+  rect(370,240,90,35);
+  rect(465,240,60,35);
+    // layer 8
+  rect(305,280,80,35);
+  rect(390,280,60,35);
+  rect(455,280,80,35);
+    // layer 9
+  rect(305,320,60,35);
+  rect(370,320,90,35);
+  rect(465,320,60,35);
   
 // table 
   fill(#C4A484);
