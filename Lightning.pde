@@ -5,99 +5,150 @@ void setup(){
 }
 
 int startX = 0;
-int startY = 333;
+int startY = 364;
 int endX = 250;
-int endY = 333;
+int endY = 364;
+int opacity = 70;
 boolean start = false;
 
 void draw(){
   if(start == true){
-    stroke(235,235,235,25);
+    stroke(235,235,235,opacity);
     strokeWeight(2);
     noFill();
-      
-    while(endY > -5){
-      endX = startX + ((int)(Math.random()*19)-9);
-      endY = startY - ((int)(Math.random()*11)); 
-      line(startX,startY, endX,endY);
-      startX = endX;
-      startY = endY;
-    } // draw lightning
+    endX = startX + ((int)(Math.random()*19)-9);
+    endY = startY - ((int)(Math.random()*11)); 
+    line(startX,startY, endX,endY);
+    startX = endX;
+    startY = endY;
+    if(opacity > 5);
+      opacity -= 0.25;
   } // check if start 
 }
 
 void keyPressed(){
   if(key == 'r'){
     coffeeshop();
+    opacity = 70;
     start = false;
   }
 } // blow steam
 
 void mousePressed(){ 
-  System.out.println("(" + mouseX +", " + mouseY+")");
-  startX = (int)(Math.random()*71)+215; // 215,285
-  startY = 333;
+  
+  startX = (int)(Math.random()*71)+195; // 215,285
+  startY = 364;
   endX = 250;
-  endY = 333;
-  //start = true;
+  endY = 364;
+  opacity = 70;
+  start = true;
 }
 
-int coffeeX = 250;
-int coffeeY = 335; // 335
+int coffeeX = 230;
+int coffeeY = 365; 
 
 void coffeeshop(){
-  background(#2F3133);
   noStroke(); 
 // wall
   // window
-  fill(240);
-  rect(0,305,500,200);
+    // gray skies
+  fill(125);
+  rect(0,0,260,305);
+  
+    // frame
+  fill(245);
   rect(260,0,40,350);
+  rect(0,305,500,200);
+  fill(230);
+  rect(260,0,10,315);
+  rect(0,305,260,10);
+  
+  stroke(245);
+  line(260,200,225,245);
+  line(253,181,195,250);
+  line(41,46,0,90);
+  line(0,115,13,100);
+  line(5,305,40,265);
+  
   // brick wall
-  fill(#AA4A44);
+  noStroke();
+  fill(#bb8f72);
   rect(300,0,200,500);
     // layer 1
-  fill(#000000);
+  fill(#a1591e);
   rect(305,0,60,35);
+  fill(#9c5536);
   rect(370,0,90,35);
+  fill(#ab744f);
   rect(465,0,60,35);
     // layer 2
+  fill(#9c5536);
   rect(305,40,80,35);
+  fill(#963f19);
   rect(390,40,60,35);
+  fill(#a1591e);
   rect(455,40,80,35);
     // layer 3
+  fill(#9c5536);
   rect(305,80,60,35);
+  fill(#ab744f);
   rect(370,80,90,35);
+  fill(#7e411f);
   rect(465,80,60,35);
     // layer 4
   rect(305,120,80,35);
+  fill(#a1591e);
   rect(390,120,60,35);
+  fill(#9c5536);
   rect(455,120,80,35);
     // layer 5
+  fill(#a1591e);
   rect(305,160,60,35);
+  fill(#7e411f);
   rect(370,160,90,35);
+  fill(#a1591e);
   rect(465,160,60,35);
     // layer 6
+  fill(#963f19);
   rect(305,200,80,35);
+  fill(#ab744f);
   rect(390,200,60,35);
+  fill(#9c5536);
   rect(455,200,80,35);
     // layer 7
+  fill(#7e411f);
   rect(305,240,60,35);
+  fill(#963f19);
   rect(370,240,90,35);
+  fill(#a1591e);
   rect(465,240,60,35);
     // layer 8
   rect(305,280,80,35);
+  fill(#9c5536);
   rect(390,280,60,35);
   rect(455,280,80,35);
     // layer 9
+  fill(#7e411f);
   rect(305,320,60,35);
+  fill(#9c5536);
   rect(370,320,90,35);
+  fill(#ab744f);
   rect(465,320,60,35);
   
+  
 // table 
-  fill(#C4A484);
+  fill(#BA8C63);
   rect(0,350,500,300); 
-  // shadows
+  // shading
+  fill(#826246);
+  beginShape();
+  vertex(310,375);
+  vertex(465,385);
+  vertex(500,375);
+  vertex(500,360);
+  vertex(320,360);
+  endShape();
+  ellipse(coffeeX,443,110,10);
   
 // bottom book
   // bottom cover
@@ -109,6 +160,14 @@ void coffeeshop(){
   vertex(500,370);
   vertex(500,360);
   endShape();
+  // shading
+  fill(#00260E);
+  rect(315,320,5,47);
+  beginShape();
+  vertex(438,382);
+  vertex(500,370);
+  vertex(457,353);
+  endShape();
   // pages
   fill(#E0D3AF);
   beginShape();
@@ -117,6 +176,20 @@ void coffeeshop(){
   vertex(400,386);
   vertex(500,365);
   vertex(500,320);
+  endShape();
+  // shading
+  fill(#C6BB9D);
+  beginShape();
+  vertex(438,330);
+  vertex(438,378);
+  vertex(500,363);
+  vertex(500,320);
+  endShape();
+  beginShape();
+  vertex(341,324);
+  vertex(340,370);
+  vertex(320,364);
+  vertex(320,320);
   endShape();
   
   strokeWeight(0.5);
@@ -242,6 +315,15 @@ void coffeeshop(){
   vertex(345,273);
   endShape();
   line(465,330,500,323);
+    // shading
+  noStroke();
+  fill(#007777);
+  beginShape();
+  vertex(310,280);
+  vertex(466,291);
+  vertex(466,332);
+  vertex(308,322);
+  endShape();
   
   
 // cat tail
@@ -324,7 +406,91 @@ void coffeeshop(){
   curveVertex(coffeeX+35,coffeeY+60);
   endShape(); 
   
-  // pastries
   
-
+  // breakfast
+    //board
+  noStroke();
+  fill(#634848);
+  beginShape();
+  vertex(0,400);
+  vertex(0,420);
+  vertex(150,420);
+  vertex(150,400);
+  endShape();
+  fill(#775656);
+  beginShape();
+  vertex(150,400);
+  vertex(145,380);
+  vertex(0,380);
+  vertex(0,400);
+  endShape();
+  
+  stroke(#634848);
+  strokeWeight(2);
+  line(0,400,148,400);
+    // crossiant
+  fill(#ffdb69);
+  ellipse(60,387,150,15);
+  strokeWeight(1.5);
+  stroke(#E2C25F);
+    // left tip
+  beginShape();
+  vertex(30,390);
+  vertex(22,365);
+  curveVertex(22,365);
+  curveVertex(22,365);
+  curveVertex(10,368);
+  curveVertex(-5,380);
+  curveVertex(-12,386);
+  curveVertex(5,390);
+  curveVertex(5,390);
+  endShape();
+    // left side
+  beginShape();
+  vertex(60,390);
+  vertex(48,360);
+  curveVertex(48,360);
+  curveVertex(48,360);
+  curveVertex(35,355);
+  curveVertex(20,360);
+  curveVertex(20,360);
+  vertex(20,360);
+  vertex(30,390);
+  endShape();
+    // middle 
+  beginShape();
+  curveVertex(45,355);
+  curveVertex(45,355);
+  curveVertex(60,350);
+  curveVertex(75,355);
+  curveVertex(75,355);
+  vertex(75,355);
+  vertex(60,390);
+  vertex(45,355);
+  endShape();
+    // right side
+  beginShape();
+  vertex(60,390);
+  vertex(72,360);
+  curveVertex(72,360);
+  curveVertex(72,360);
+  curveVertex(85,355);
+  curveVertex(100,360);
+  curveVertex(100,360);
+  vertex(100,360);
+  vertex(90,390);
+  endShape();
+    // right tip
+  beginShape();
+  vertex(90,390);
+  vertex(98,365);
+  curveVertex(98,365);
+  curveVertex(98,365);
+  curveVertex(110,368);
+  curveVertex(125,380);
+  curveVertex(132,386);
+  curveVertex(115,390);
+  curveVertex(115,390);
+  endShape();
+  
 }
