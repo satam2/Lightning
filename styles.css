@@ -13,11 +13,12 @@ body {
 }
 
 header {
-	
+	color: #eed9c4;
+	font-family: "Helvetica", sans-serif;
 }
 
 footer {
-	font-style: italic;
-	font-size: 90%;
+	font-style: bold;
+	font-size: 100%;
 }
 
